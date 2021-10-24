@@ -1,0 +1,25 @@
+{
+  "name": "ninja",
+  "version": "1.0.0",
+  "description": "A top down shoote",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kewlamogh/ninja.git"
+  },
+  "author": "amoghthecool",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kewlamogh/ninja/issues"
+  },
+  "homepage": "https://github.com/kewlamogh/ninja#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.5"
+  }
+}
