@@ -20,10 +20,7 @@ var enemyNinjas = [{
   y: 0
 }];
 
-var items = [{
-  canvX: 30,
-  canvY: 30
-}];
+var items = [{canvX:1118, canvY:308},{canvX:1118, canvY:308},{canvX:1118, canvY:308},{canvX:1118, canvY:308},{canvX:1118, canvY:308}];
 
 let setIntervalTo = setInterval;
 
