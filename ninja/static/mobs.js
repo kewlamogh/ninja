@@ -9,6 +9,13 @@ function drawItems() {
   }
 }
 
+function drawMegaNinjaBoss() {
+  fill("darkgray");
+  megaNinjaBoss.x += Math.random(); 
+  ellipse(megaNinjaBoss.x, megaNinjaBoss.y, 100, 100);
+  fill("black");
+}
+
 function drawBadNinjas() {
   let range = (a, b) => {
     let x = [];
@@ -35,12 +42,6 @@ function drawBadNinjas() {
 
     if (isTouchingPlayer(i, player)) {
       alert("You died.");
-      
-      /*
-      let x = document.createElement("a");
-      x.href = self.location.href;
-      x.click();
-      */
     }
  
     i.x += (player.x - i.x) / 20;
@@ -51,9 +52,22 @@ function drawBadNinjas() {
 }
 
 function drawBullets() {
+  let x = [];
+  let range = (a, b) => {
+    for (var i = a; i <= b; i++) {
+      x.push(Math.round(i));
+    }
+    return x;
+  };
   let roundEquals = (a, b) => Math.round(a) == Math.round(b);
   for (let i of player.attack.bullets) {
     if (roundEquals(i.x, i.target.x) && roundEquals(i.y, i.target.y)) {
+      continue;
+    }
+
+    if (range(megaNinjaBoss.x - 50, megaNinjaBoss.x + 50).includes(Math.round(i.x))) {
+      megaNinjaBoss.health--;
+      player.attack.bullets = player.attack.bullets.filter(e => e != i);
       continue;
     }
 
@@ -68,12 +82,12 @@ function drawBullets() {
 }
 
 function _move(pixX, pixY) {
+  player.x += pixX / 2 / 20;
+  player.y += pixY / 2 / 20;
+
   for (let i of items) {
     i.canvX -= pixX / 2;
     i.canvY -= pixY / 2;
-
-    player.x += pixX / 2 / 20;
-    player.y += pixY / 2 / 20;
   }
 
   for (let i of player.attack.bullets) {
@@ -88,6 +102,9 @@ function _move(pixX, pixY) {
     i.x -= pixX / 2;
     i.y -= pixY / 2;  
   }
+
+  megaNinjaBoss.x -= pixX / 2;
+  megaNinjaBoss.y -= pixY / 2;  
 } 
 
 function move() {
