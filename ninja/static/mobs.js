@@ -31,7 +31,7 @@ function drawBadNinjas() {
 
   for (let i of enemyNinjas) {
     for (let bul of player.attack.bullets) {
-      if (range(i.x - 30, i.x + 30).includes(Math.round(bul.x)) && range(i.y - 30, i.y + 30).includes(Math.round(bul.y))) {
+      if (range(i.x - 35, i.x + 35).includes(Math.round(bul.x)) && range(i.y - 30, i.y + 30).includes(Math.round(bul.y))) {
         enemyNinjas = remove(enemyNinjas, i);
         player.attack.bullets = player.attack.bullets.filter(e => e != i);
         continue;
@@ -40,6 +40,7 @@ function drawBadNinjas() {
 
     if (isTouchingPlayer(i, player)) {
       alert("You died.");
+      window.location.href = "https://replit.com";
     }
  
     i.x += (player.x - i.x) / 20;
@@ -60,13 +61,18 @@ function drawBullets() {
   let roundEquals = (a, b) => Math.round(a) == Math.round(b);
   for (let i of player.attack.bullets) {
     if (roundEquals(i.x, i.target.x) && roundEquals(i.y, i.target.y)) {
+      player.attack.bullets = player.attack.bullets.filter(e => e != i);
+    }
+
+    if (range(megaNinjaBoss.x - 50, megaNinjaBoss.x + 50).includes(Math.round(i.x)) && range(megaNinjaBoss.y - 300, megaNinjaBoss.y + 300).includes(Math.round(i.x))) {
+      megaNinjaBoss.health--;
+      player.attack.bullets = player.attack.bullets.filter(e => e != i);
       continue;
     }
 
-    if (range(megaNinjaBoss.x - 300, megaNinjaBoss.x + 300).includes(Math.round(i.x)) && range(megaNinjaBoss.y - 300, megaNinjaBoss.y + 300).includes(Math.round(i.x))) {
-      megaNinjaBoss.health--;
-        player.attack.bullets = player.attack.bullets.filter(e => e != i);
-      continue;
+    if (megaNinjaBoss.health == 0) {
+      alert("You defeated the NinjaBoss! Good job, Random-Ninja-I-Don't-Know.");
+      window.location.href = "https://replit.com";
     }
 
     ("lightblue")

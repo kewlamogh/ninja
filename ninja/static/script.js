@@ -106,7 +106,7 @@ function draw() {
   */
 
   playerImg.resize(120, 120);
-  enemyImg.resize(120, 120);
+  enemyImg.resize(140, 140);
   bossImg.resize(600, 600);
 
   background("green");
