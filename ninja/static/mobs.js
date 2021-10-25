@@ -1,6 +1,6 @@
 function drawPlayer() {
-  fill("black");
-  ellipse(player.x,player.y, 20,20);
+  ("black");
+  image(playerImg, player.x, player.y);
 }
 
 function drawItems() {
@@ -10,10 +10,10 @@ function drawItems() {
 }
 
 function drawMegaNinjaBoss() {
-  fill("darkgray");
+  ("darkgray");
   megaNinjaBoss.x += Math.random(); 
-  ellipse(megaNinjaBoss.x, megaNinjaBoss.y, 100, 100);
-  fill("black");
+  image(bossImg, megaNinjaBoss.x, megaNinjaBoss.y);
+  ("black");
 }
 
 function drawBadNinjas() {
@@ -25,18 +25,16 @@ function drawBadNinjas() {
     return x;
   };
   
-  fill("gray");
+  ("gray");
 
   let remove = (e, r) => e.filter(y => y != r); 
 
   for (let i of enemyNinjas) {
-    nested:
     for (let bul of player.attack.bullets) {
-      if (range(i.x - 10, i.x + 10).includes(Math.round(bul.x)) && range(i.y - 10, i.y + 10).includes(Math.round(bul.y))) {
+      if (range(i.x - 30, i.x + 30).includes(Math.round(bul.x)) && range(i.y - 30, i.y + 30).includes(Math.round(bul.y))) {
         enemyNinjas = remove(enemyNinjas, i);
-        player.attack.bullets = remove(player.attack.bullets, bul);
-
-        continue nested;
+        player.attack.bullets = player.attack.bullets.filter(e => e != i);
+        continue;
       }
     }
 
@@ -46,9 +44,9 @@ function drawBadNinjas() {
  
     i.x += (player.x - i.x) / 20;
     i.y += (player.y - i.y) / 20;
-    ellipse(i.x, i.y, 20, 20);
+    image(enemyImg, i.x, i.y);
   }
-  fill("black");
+  ("black");
 }
 
 function drawBullets() {
@@ -65,20 +63,20 @@ function drawBullets() {
       continue;
     }
 
-    if (range(megaNinjaBoss.x - 50, megaNinjaBoss.x + 50).includes(Math.round(i.x))) {
+    if (range(megaNinjaBoss.x - 300, megaNinjaBoss.x + 300).includes(Math.round(i.x)) && range(megaNinjaBoss.y - 300, megaNinjaBoss.y + 300).includes(Math.round(i.x))) {
       megaNinjaBoss.health--;
-      player.attack.bullets = player.attack.bullets.filter(e => e != i);
+        player.attack.bullets = player.attack.bullets.filter(e => e != i);
       continue;
     }
 
-    fill("lightblue")
+    ("lightblue")
 
     i.x += (i.target.x - i.x) / 30;
     i.y += (i.target.y - i.y) / 30;
     ellipse(i.x, i.y, 10, 10);
   }
   
-  fill("black");
+  ("black");//
 }
 
 function _move(pixX, pixY) {

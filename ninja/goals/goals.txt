@@ -3,3 +3,4 @@
     * maybe to steal an evil object? (example like a very powerful sword)
     * hack a computer
 - map 〰
+- [optional] make ninja images instead of eclipses 
