@@ -1,0 +1,6 @@
+- objectives ✔
+    * maybe to kill a mega ninja boss? (boss could have powerful bullets [maybe even more ninjas] and loads of health) ✔
+    * maybe to steal an evil object? (example like a very powerful sword)
+    * hack a computer
+- map 〰
+- [optional] make ninja images instead of ellipses ✔
