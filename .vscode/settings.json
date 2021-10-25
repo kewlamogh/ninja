@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2e5cb00a-8db3-4a58-852a-da1527270802/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/ninjafighter",
+    "appService.deploySubpath": "."
+}

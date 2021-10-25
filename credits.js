@@ -14,6 +14,7 @@ function Credits() {
             <ul>
                 <li>p5.js for their <b>amazing</b> rendering tool</li>
                 <li>StackOverflow and Bing for some help</li>
+                <li><a href = "https://www.piskelapp.com/">Piskel</a> for it's pixel art editor</li>
             </ul>
             This game was made for <b>Kajam</b>, a game jam on <a href = "https://replit.com">Replit</a>.
         </body>
